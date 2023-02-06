@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 import random
@@ -20,6 +21,10 @@ class LoginScreen(Screen):
     pass
 
 
+class BombPopup(Popup):
+    pass
+
+
 class Field(Button):
     def __init__(self, **kwargs):
         self.row_id = kwargs.pop("row_id")
@@ -28,6 +33,15 @@ class Field(Button):
 
     def on_press(self):
         print(self.row_id, self.col_id)
+        print(self.parent.mine[self.row_id][self.col_id])
+        self.disabled = True
+        if self.parent.mine[self.row_id][self.col_id] == 0:
+            self.text = ""
+            return
+
+        self.text = "bomb"
+        popup = BombPopup()
+        popup.open()
 
 
 class MineLayout(GridLayout):
