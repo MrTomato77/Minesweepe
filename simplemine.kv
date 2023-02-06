@@ -1,0 +1,14 @@
+<LoginScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Submit"
+            on_press: self.parent.parent.manager.current = "play_game"
+
+<PlayGameScreen>:
+    BoxLayout:
+        MineLayout:
+
+        BoxLayout:
+            Label:
+                text: "World"
