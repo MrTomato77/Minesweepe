@@ -1,4 +1,4 @@
-﻿# Minesweepe_bomb
+﻿# Minesweepe game!
 
 Nakrit Kreechaichana
 6510110212
