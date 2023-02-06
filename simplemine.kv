@@ -1,9 +1,33 @@
 <LoginScreen>:
     BoxLayout:
         orientation: "vertical"
+        padding: 20
+        spacing: 20
+        Label:
+            text: "Welcome to Minesweeper!!"
+            font_size: 30
+            size_hint_y: None
+            height: self.texture_size[1] * 2
+        Image:
+            source: "images/bomb.png"
+            size_hint: None, None
+            height: self.texture_size[1] * 1/2
+            width: self.texture_size[0] * 1/2
+            pos_hint: {"center_x": .5, "center_y": .5}
+        Label:
+            text: "Click the button below to start playing"
+            font_size: 20
         Button:
-            text: "Submit"
+            text: "Enter the game"
             on_press: self.parent.parent.manager.current = "play_game"
+            background_color: (0, 1, 0, 1)
+            size_hint_y: None
+            height: 50
+            font_size: 20
+        BoxLayout:
+            size_hint_y: None
+            height: 20
+
 
 <PlayGameScreen>:
     BoxLayout:
@@ -12,7 +36,7 @@
         BoxLayout:
             Label:
                 text: "World"
-        
+
 
 <BombPopup>:
     auto_dismiss: False
