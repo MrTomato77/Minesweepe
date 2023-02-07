@@ -14,9 +14,18 @@
             height: self.texture_size[1] * 1/2
             width: self.texture_size[0] * 1/2
             pos_hint: {"center_x": .5, "center_y": .5}
-        Label:
-            text: "Click the button below to start playing"
-            font_size: 20
+        Button:
+            text: "5x5"
+            on_press: self.parent.parent.select_size(5, 5, 5)
+        Button:
+            text: "8x8"
+            on_press: self.parent.parent.select_size(8, 8, 5)
+        Button:
+            text: "16x16"
+            on_press: self.parent.parent.select_size(16, 16, 20)
+        Button:
+            text: "32x32"
+            on_press: self.parent.parent.select_size(32, 32, 100)
         Button:
             text: "Enter the game"
             on_press: self.parent.parent.manager.current = "play_game"
@@ -31,16 +40,24 @@
 
 <PlayGameScreen>:
     BoxLayout:
-        MineLayout:
+        BoxLayout:
+            id: mine_layout
+            size_hint: 
 
         BoxLayout:
             Label:
-                text: "World"
+                text: "Count"
+            Label:
+                id: score_number
+                text: "0"
+            Button:
+                text: "Hello"
+
 
 
 <BombPopup>:
     auto_dismiss: False
-    title: "Bomb!!"
+    title: "KaBoom!!"
     BoxLayout:
         orientation:"vertical"
         Label:
